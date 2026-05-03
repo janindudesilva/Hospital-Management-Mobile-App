@@ -1,6 +1,14 @@
 import mongoose from 'mongoose';
 
 const migrateAppointmentSlotIndex = async () => {
+  const db = mongoose.connection.db;
+  const collections = await db.listCollections({ name: 'appointments' }).toArray();
+  
+  if (collections.length === 0) {
+    console.log('Appointments collection does not exist, skipping index migration');
+    return;
+  }
+
   const collection = mongoose.connection.collection('appointments');
   const indexes = await collection.indexes();
   const uniqueSlotIndexName = 'doctor_1_appointmentDate_1_startTime_1';
