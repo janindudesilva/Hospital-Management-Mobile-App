@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Environment (never commit secrets — use *.example templates)
+.env
+**/.env
+!**/.env.example
+
+# Expo / Metro
+**/.expo/
+**/dist/
+web-build/
+
+# Logs & OS
+logs/
+*.log
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Debug / coverage
+coverage/
+.nyc_output/
